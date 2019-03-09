@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Get a Black Screen!</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        box-shadow: none;
+        background-color: #ccc;
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body style="background-color:black">
+    <button id="button" onclick="openFullscreen()">Go Full Screen</button>
+    <script>
+      //   var elem = document.documentElement;
+      //   function openFullscreen() {
+      //     if (elem.requestFullscreen) {
+      //       elem.requestFullscreen();
+      //     } else if (elem.mozRequestFullScreen) {
+      //       /* Firefox */
+      //       elem.mozRequestFullScreen();
+      //     } else if (elem.webkitRequestFullscreen) {
+      //       /* Chrome, Safari & Opera */
+      //       elem.webkitRequestFullscreen();
+      //     } else if (elem.msRequestFullscreen) {
+      //       /* IE/Edge */
+      //       elem.msRequestFullscreen();
+      //     }
+      //   }
+      var a = 0;
+      var body = document.body;
+      var button = document.getElementsByTagName("button");
+      function openFullscreen() {
+        if (a == 0) {
+          body.requestFullscreen();
+          body.mozRequestFullScreen();
+          body.webkitRequestFullscreen();
+          body.msRequestFullscreen();
+          button[0].innerHTML = "Exit Full Screen";
+          a = 1;
+        } else {
+          document.exitFullscreen();
+          button[0].innerHTML = "Go Full Screen";
+          a = 0;
+        }
+      }
+    </script>
+  </body>
+</html>
